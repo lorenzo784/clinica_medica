@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block header %}
+
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <form method="post">
+            {% csrf_token %}
+            <h3>¿Desea eliminar al paciente {{object.nombre}}?</h3>   
+            <button class="btn btn-danger" type="submit">Si, eliminar</button>
+            <a class="btn btn-default" href="{% url 'clinica:paciente-list' %}">Cancelar</a>
+        </form>
+    </div>
+{% endblock content %}

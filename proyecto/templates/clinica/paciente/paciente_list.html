@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block header %}
+
+{% endblock %}
+{% block content %}
+<div class="tabla-registro">
+
+    <div class="">
+        <div class="">
+            <a class="btn" href="{% url 'clinica:paciente-create' %}">Ingresar nuevo paciente</a>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <td>Nombre</td>
+                    <td>DPI</td>
+                    <td>Fecha de nacimiento</td>
+                    <td>Dirección</td>
+                    <td>Razon de visita</td>
+                    <td>Receta médica</td>
+                    <td>Número telefónico</td>
+                    <td>Opciones</td>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% if object_list %}
+                {% for paciente in object_list %}
+                <tr>
+                    <td>{{paciente.nombre}}</td>
+                    <td>{{paciente.dpi}}</td>
+                    <td>{{paciente.fecha_de_nacimiento}}</td>
+                    <td>{{paciente.direccion}}</td>
+                    <td>{{paciente.razon_de_visita}}</td>
+                    <td>{{paciente.receta_medica}}</td>
+                    <td>{{paciente.numero_telefonico}}</td>
+                    <td>
+                        <a class="btn" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
+                        <a class="btn" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <h1 class="text-center">No hay registros</h1>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

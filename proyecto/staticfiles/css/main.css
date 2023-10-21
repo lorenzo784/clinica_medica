@@ -31,6 +31,11 @@ body {
     margin: 0 auto;
 }
 
+.content {
+    display: flex;
+    justify-content: center;
+}
+
 .btn-container {
     margin: 10px 0;
     display: flex;
@@ -44,6 +49,10 @@ body {
     border-radius: 20px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-100);
 }
 
 .navbar {
@@ -96,4 +105,12 @@ body {
 
 .form-control:hover {
     border: 2px solid var(--accent-100);
+}
+
+
+
+.tabla-registro {
+    display:grid;
+    gap: 20px;
+    justify-content: center;
 }
