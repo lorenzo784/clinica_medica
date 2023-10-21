@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="tabla-registro">
+
+    <div class="">
+        <div class="">
+            <a class="btn" href="{% url 'clinica:medico-create' %}">Ingresar nuevo médico</a>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    <td>Nombre</td>
+                    <td>Número de colegiado</td>
+                    <td>Especialidad</td>
+                    <td>Diagnóstico</td>
+                    <td>Opciones</td>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% if object_list %}
+                {% for medico in object_list %}
+                <tr>
+                    <td>{{medico.nombre}}</td>
+                    <td>{{medico.numero_colegiado}}</td>
+                    <td>{{medico.especialidad}}</td>
+                    <td>{{medico.diagnostico}}</td>
+                    <td>
+                        <a class="btn" href="{% url 'clinica:medico-update' medico.id %}">Editar</a>
+                        <a class="btn" href="{% url 'clinica:medico-delete' medico.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <h1 class="text-center">No hay registros</h1>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock content %}

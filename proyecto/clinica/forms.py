@@ -37,25 +37,82 @@ class PacienteForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Ingrese su numero de DPI'
-                    }
-                ),
+                }
+            ),
             'fecha_de_nacimiento': forms.DateInput(
                 attrs={
-                    'type': 'date', 
+                    'type': 'date',
                     'class': 'form-control',
-                    'placeholder': 'Ingrese su numero de DPI'
                 }
             ),
             'direccion': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su dirección residencial'
+                }
             ),
             'razon_de_visita': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su razón de visita'
+                }
             ),
             'receta_medica': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su receta medica'
+                }
             ),
             'numero_telefonico': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su número  telefónico'
+                }
             ),
+        }
+
+
+class MedicoForm(forms.ModelForm):
+    class Meta:
+        model = Medico
+
+        fields = [
+            'nombre',
+            'numero_colegiado',
+            'especialidad',
+            'diagnostico',
+        ]
+
+        labels = {
+            'nombre': 'Nombre completo',
+            'numero_colegiado': 'Número de colegiado',
+            'especialidad': 'Especialidad',
+            'diagnostico': 'Diagnostico',
+        }
+
+        widgets = {
+            'nombre': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su nombre'
+                }
+            ),
+            'numero_colegiado': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su numero de colegiado'
+                }
+            ),
+            'especialidad': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese su especialidad',
+                }
+            ),
+            'diagnostico': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese el diagnostico',
+                }
+            )
         }
