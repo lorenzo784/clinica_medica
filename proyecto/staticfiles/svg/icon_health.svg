@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="15" viewBox="0 0 46 15">
+    <defs>
+        <path id="ud8xa"
+            d="M386 1629h6.81l2.15-4.9a.73.73 0 0 1 1.34.02l3.22 8.1 2.9-10.7c.1-.37.71-.6 1.1-.5.22.06.4.21.48.4v-.63l3.4 8.2h6.6v2.01h-7.3c-.28 0-.55-.7-.67-.96l-2.75-6.2-2.92 10.8a.73.73 0 0 1-1.39.12l-3.36-8.49-1.62 4.24a.72.72 0 0 1-.69.49H386z" />
+        <path id="ud8xb" d="M377 1629h6v2h-6z" />
+        <path id="ud8xc" d="M417 1629h6v2h-6z" />
+    </defs>
+    <g>
+        <g transform="translate(-377 -1621)">
+            <use fill="#2986e2" xlink:href="#ud8xa" />
+        </g>
+        <g transform="translate(-377 -1621)">
+            <use fill="#2986e2" xlink:href="#ud8xb" />
+        </g>
+        <g transform="translate(-377 -1621)">
+            <use fill="#2986e2" xlink:href="#ud8xc" />
+        </g>
+    </g>
+</svg>

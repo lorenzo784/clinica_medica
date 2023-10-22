@@ -51,3 +51,9 @@ class MedicoDeleteView(DeleteView):
     model = Medico
     template_name = 'clinica/medico/medico_delete.html'
     success_url = reverse_lazy('clinica:medico-list')
+
+def historia_view(request):
+    return render(request, 'clinica/web/historia.html')
+
+def contacto_view(request):
+    return render(request, 'clinica/web/contacto.html')

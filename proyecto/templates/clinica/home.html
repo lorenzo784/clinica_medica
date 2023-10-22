@@ -1,5 +1,108 @@
-{% extends '../base.html' %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>clinica medica</h1>
+<div class="homepage">
+
+    <div class="page">
+        <h1>
+            Bienvenidos a CLÍNICA MÉDICA LA ETERNA PRIMAVERA
+        </h1>
+        <P>
+            Clínica Médica La Eterna Primavera es una red de clínicas que provee servicios de salud con calidad y
+            calidez, creamos
+            acceso a servicios de salud de atención primaria dentro de las clínicas, pero también atención de segundo y
+            tercer nivel por medio de asociaciones con especialistas, laboratorios y centros hospitalarios.
+        </P>
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-title">
+                <img src="{% static 'svg/health.svg' %}" alt="svg">
+                <h3>
+                    Visión
+                </h3>
+            </div>
+            <div class="card-text">
+                <p>
+                    Crear accesos a los servicios de salud a todos los niveles socio económicos con orientación
+                    cristiana y social.
+                </p>
+                <img src="{% static 'svg/icon_health.svg' %}" alt="svg">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <img src="{% static 'svg/health.svg' %}" alt="svg">
+                <h3>
+                    Misión
+                </h3>
+            </div>
+            <div class="card-text">
+                <p>
+                    Ser el mejor sistema prestador de servicios de salud con calidad y calidez para la familia, con
+                    conciencia social, en Guatemala.
+                </p>
+                <img src="{% static 'svg/icon_health.svg' %}" alt="svg">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <img src="{% static 'svg/health.svg' %}" alt="svg">
+                <h3>
+                    Objetivo
+                </h3>
+            </div>
+            <div class="card-text">
+                <p>
+                    En Clínica Médica La Eterna Primavera, nuestro objetivo es brindar atención médica con excelencia a
+                    todos nuestros pacientes, enfatizados en las mejores prácticas,
+                    la transparencia y la compasión.
+                </p>
+                <img src="{% static 'svg/icon_health.svg' %}" alt="svg">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="info">
+        <div>
+            <h1>Clínica Médica La Eterna Primavera</h1>
+            <p>El mejor lugar para la atención de tu salud</p>
+        </div>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-medics-icons">
+                    <div class="info__background-img">
+                        <img class="info__img" src="{% static "img/health_1.png" %}" alt="img">
+                    </div>
+                    <div class="info__background-img">
+                        <img class="info__img" src="{% static "img/health_2.png" %}" alt="img">
+                    </div>
+                    <div class="info__background-img">
+                        <img class="info__img" src="{% static "img/health_4.png" %}" alt="img">
+                    </div>
+                    <div class="info__background-img">
+                        <img class="info__img" src="{% static "img/health_5.png" %}" alt="img">
+                    </div>
+                    <div class="info__background-img">
+                        <img class="info__img" src="{% static "img/health_6.png" %}" alt="img">
+                    </div>
+                </div>
+                <div>
+                    En Clínica Médica Vida, nuestro objetivo es brindar atención médica con excelencia a todos nuestros
+                    pacientes, enfatizados en las mejores prácticas, la transparencia y la compasión.
+                </div>
+            </div>
+            <div class="info-card">
+                <img class="info__medic-img" src="{% static "img/medics.jpg" %}" alt="img">
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock content %}
