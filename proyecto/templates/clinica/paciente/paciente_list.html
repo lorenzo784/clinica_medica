@@ -3,45 +3,47 @@
 {% block content %}
 <div class="tabla-registro">
 
-    <div class="">
-        <div class="">
+    <div>
+        <div>
             <a class="btn" href="{% url 'clinica:paciente-create' %}">Ingresar nuevo paciente</a>
         </div>
     </div>
 
     <div>
         <table class="table table-striped">
-            <thead class="text-center">
+            <thead class="text-center align-middle">
                 <tr>
                     <td>Nombre</td>
-                    <td>DPI</td>
-                    <td>Fecha de nacimiento</td>
-                    <td>Dirección</td>
+                    <td class="hide-data">DPI</td>
+                    <td class="hide-data">Fecha de nacimiento</td>
+                    <td class="hide-data">Dirección</td>
                     <td>Razon de visita</td>
-                    <td>Receta médica</td>
+                    <td class="hide-data">Receta médica</td>
                     <td>Número telefónico</td>
                     <td>Opciones</td>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center align-middle" >
                 {% if object_list %}
                 {% for paciente in object_list %}
                 <tr>
                     <td>{{paciente.nombre}}</td>
-                    <td>{{paciente.dpi}}</td>
-                    <td>{{paciente.fecha_de_nacimiento}}</td>
-                    <td>{{paciente.direccion}}</td>
+                    <td class="hide-data">{{paciente.dpi}}</td>
+                    <td class="hide-data">{{paciente.fecha_de_nacimiento}}</td>
+                    <td class="hide-data">{{paciente.direccion}}</td>
                     <td>{{paciente.razon_de_visita}}</td>
-                    <td>{{paciente.receta_medica}}</td>
+                    <td class="hide-data">{{paciente.receta_medica}}</td>
                     <td>{{paciente.numero_telefonico}}</td>
-                    <td>
+                    <td class="container-btns">
                         <a class="btn" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
                         <a class="btn" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
                 {% else %}
-                <h1 class="text-center">No hay registros</h1>
+                <tr>
+                    <td colspan="8" class="text-center">No hay registros</td>
+                </tr>
                 {% endif %}
             </tbody>
         </table>

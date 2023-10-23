@@ -3,29 +3,29 @@
 {% block content %}
 <div class="tabla-registro">
 
-    <div class="">
-        <div class="">
+    <div>
+        <div>
             <a class="btn" href="{% url 'clinica:medico-create' %}">Ingresar nuevo médico</a>
         </div>
     </div>
 
     <div>
         <table class="table table-striped">
-            <thead class="text-center">
+            <thead class="text-center align-middle">
                 <tr>
                     <td>Nombre</td>
-                    <td>Número de colegiado</td>
+                    <td class="hide-data">Número de colegiado</td>
                     <td>Especialidad</td>
                     <td>Diagnóstico</td>
                     <td>Opciones</td>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center align-middle">
                 {% if object_list %}
                 {% for medico in object_list %}
                 <tr>
                     <td>{{medico.nombre}}</td>
-                    <td>{{medico.numero_colegiado}}</td>
+                    <td class="hide-data">{{medico.numero_colegiado}}</td>
                     <td>{{medico.especialidad}}</td>
                     <td>{{medico.diagnostico}}</td>
                     <td>
@@ -35,7 +35,9 @@
                 </tr>
                 {% endfor %}
                 {% else %}
-                <h1 class="text-center">No hay registros</h1>
+                <tr>
+                    <td colspan="5" class="text-center">No hay registros</td>
+                </tr>
                 {% endif %}
             </tbody>
         </table>
