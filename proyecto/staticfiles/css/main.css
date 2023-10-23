@@ -265,6 +265,11 @@ body {
     z-index: 30;
 }
 
+.ham-menu.active {
+    position: fixed;
+    top: 8px;
+}
+
 .ham-menu span {
     height: 5px;
     width: 40px;
