@@ -12,30 +12,32 @@
 </head>
 <body>
     <header>
-        <nav class="navbar container">
-            <div class="navbar-left">
-                <div>
-                    <img class="navbar-left_icon" style="height: 32px;" src="{% static "img/heart-beat.png" %}" alt="img">
-                    
-                    <div class="ham-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+        <nav class="navbar">
+            <div class="container-navbar">
+                <div class="navbar-left">
+                    <div>
+                        <img class="navbar-left_icon" style="height: 32px;" src="{% static 'img/heart-beat.png' %}" alt="img">
+                
+                        <div class="ham-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="navbar-mid">
-                <div class="navbar-menu">
-                    <ul class="navbar-items">
-                        <li class="navbar-item"><a href="{% url 'clinica:home' %}">Inicio</a></li>
-                        <li class="navbar-item"><a href="">Formulario</a></li>
-                        <li class="navbar-item"><a href="{% url 'clinica:contacto' %}">Contacto</a></li>
-                        <li class="navbar-item"><a href="{% url 'clinica:historia' %}">Historia</a></li>
-                    </ul>
+                <div class="navbar-mid">
+                    <div class="navbar-menu">
+                        <ul class="navbar-items">
+                            <li class="navbar-item"><a href="{% url 'clinica:home' %}">Inicio</a></li>
+                            <li class="navbar-item"><a href="">Formulario</a></li>
+                            <li class="navbar-item"><a href="{% url 'clinica:contacto' %}">Contacto</a></li>
+                            <li class="navbar-item"><a href="{% url 'clinica:historia' %}">Historia</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="navbar-right">
-                <a href="{% url 'clinica:home' %}"><img style="height: 32px;" src="{% static "img/heart-beat.png" %}" alt="img"></a>
+                <div class="navbar-right">
+                    <a href="{% url 'clinica:home' %}"><img style="height: 32px;" src="{% static 'img/heart-beat.png' %}" alt="img"></a>
+                </div>
             </div>
         </nav>
     </header>   

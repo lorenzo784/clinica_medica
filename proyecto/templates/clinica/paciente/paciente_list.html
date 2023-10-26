@@ -3,10 +3,9 @@
 {% block content %}
 <div class="tabla-registro">
 
-    <div>
-        <div>
-            <a class="btn" href="{% url 'clinica:paciente-create' %}">Ingresar nuevo paciente</a>
-        </div>
+    <div class="container-btn">
+        <a class="btn btn-medic" href="{% url 'clinica:paciente-create' %}">Ingresar nuevo paciente</a>
+        <a class="btn btn-medic" href="{% url 'clinica:medico-list' %}">Médicos</a>
     </div>
 
     <div>
@@ -35,8 +34,8 @@
                     <td class="hide-data">{{paciente.receta_medica}}</td>
                     <td>{{paciente.numero_telefonico}}</td>
                     <td class="container-btns">
-                        <a class="btn" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
-                        <a class="btn" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
+                        <a class="btn btn-primary" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
