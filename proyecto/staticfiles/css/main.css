@@ -32,12 +32,12 @@ ul {
 }
 
 body {    
-    min-height: 100vh; /* Al menos el 100% de la altura del viewport */
-    display: flex;
-    flex-direction: column;
     font-family: 'Exo 2', sans-serif;
     font-size: 16px;
     background-color: var(--bg-200);
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 .container {
@@ -263,8 +263,6 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-
-    bottom: 0;
 }
 
 @media only screen and (max-width: 800px) {
