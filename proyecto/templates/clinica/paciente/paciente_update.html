@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <h4 style="text-align: center;">Agregar nuevo paciente</h4>
+        <h4 style="text-align: center;">Editar al paciente {{ object.nombre }}</h4>
         <div class="btn-container">
             <a class="btn btn-medic" href="{% url 'clinica:paciente-list' %}">Cancelar</a>
         </div>

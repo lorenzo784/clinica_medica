@@ -411,3 +411,17 @@ body {
         font-size: 12px;
     }
 }
+
+
+
+/* apartado formulario */
+
+.formularios {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 70vh;
+    flex-direction: column;
+    gap: 50px;
+}

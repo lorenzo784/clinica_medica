@@ -22,7 +22,7 @@ class PacienteCreateView(CreateView):
 class PacienteUpdateView(UpdateView):
     model = Paciente
     form_class = PacienteForm
-    template_name = 'clinica/paciente/paciente_form.html'
+    template_name = 'clinica/paciente/paciente_update.html'
     success_url = reverse_lazy('clinica:paciente-list')
 
 class PacienteDeleteView(DeleteView):
@@ -44,7 +44,7 @@ class MedicoCreateView(CreateView):
 class MedicoUpdateView(UpdateView):
     model = Medico
     form_class = MedicoForm
-    template_name = 'clinica/medico/medico_form.html'
+    template_name = 'clinica/medico/medico_update.html'
     success_url = reverse_lazy('clinica:medico-list')
 
 class MedicoDeleteView(DeleteView):
@@ -57,3 +57,6 @@ def historia_view(request):
 
 def contacto_view(request):
     return render(request, 'clinica/web/contacto.html')
+
+def formulario_view(request):
+    return render(request, 'clinica/web/formulario.html')

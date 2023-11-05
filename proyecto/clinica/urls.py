@@ -17,4 +17,5 @@ urlpatterns = [
 
     path('historia', views.historia_view, name='historia'),
     path('contacto', views.contacto_view, name='contacto'),
+    path('formularios', views.formulario_view, name='formulario'),
 ]
