@@ -4,11 +4,17 @@
 <div class="formularios">
     <div>
         <h4>Formulario para pacientes</h4>
-        <a class="btn btn-medic" href="{% url 'clinica:medico-create' %}">Paciente</a>
+        <a class="btn btn-medic" href="{% url 'clinica:paciente-create' %}">Paciente</a>
+
+        <h4>Mostrar datos</h4>
+        <a class="btn btn-medic" href="{% url 'clinica:paciente-list' %}">Datos de pacientes</a>
     </div>
     <div>
         <h4>Formulario para médicos</h4>
-        <a class="btn btn-medic" href="{% url 'clinica:medico-create' %}">Médico</a>
+        <a class="btn btn-medic" href="{% url 'clinica:medico-create' %}">Médicos</a>
+        
+        <h4>Mostrar datos</h4>
+        <a class="btn btn-medic" href="{% url 'clinica:medico-list' %}">Datos de médicos</a>
     </div>
 </div>
 {% endblock content %}
