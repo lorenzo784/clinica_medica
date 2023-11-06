@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
-from .forms import RegistrationForm, UserEditForm, UserLoginForm
+from .forms import RegistrationForm, UserLoginForm
 
 
 from django.contrib.auth import authenticate, login, logout
 
 
-def register(request):
-
+def user_register(request):
     if request.user.is_authenticated:
         return redirect('clinica:formulario')
 
@@ -27,14 +27,14 @@ def register(request):
 
 def user_login(request):
     if request.user.is_authenticated:
-        return redirect('clinica:formulario')
+        return redirect('clinica:home')
 
     if request.method == 'POST':
         form = UserLoginForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('clinica:formulario')
+            return redirect('clinica:home')
 
     else:
         form = UserLoginForm()

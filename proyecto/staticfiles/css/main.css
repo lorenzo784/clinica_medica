@@ -494,3 +494,9 @@ body {
     list-style: none;
     right: 0;
 }
+
+.account-form {
+    min-width: 250px;
+    max-width: 400px;
+    margin: 0 auto;
+}

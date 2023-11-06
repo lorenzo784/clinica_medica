@@ -4,11 +4,11 @@
 
 <form class="account-form" action="." method="post">
   {% csrf_token %}
-  <h3 class="mb-2">Create an account</h3>
-  <p class="mb-4">It's free and only takes a minute.</p>
+  <h3 class="mb-2">Crear una nueva cuenta</h3>
+  <p class="mb-4">Es gratis y solo tomará unos minutos</p>
 
   {% if form.errors %}
-  <p>Please correct the following errors:</p>
+  <p>Por favor, corrige los errores:</p>
   {% for field in form %}
   {% if field.errors %}
   <div class="alert alert-primary" role="alert">
@@ -19,23 +19,23 @@
   {% endif %}
 
   <label>{{ form.user_name.label }}<span class="text-muted small">
-      (Required)</span></label>
+      (Requerido)</span></label>
   {{ form.user_name }}
   <label>{{ form.email.label}}<span class="text-muted small">
-      (Required)</span></label>
+      (Requerido)</span></label>
   {{ form.email }}
   <label>{{ form.password.label}}<span class="text-muted mb-4">
     </span></label>
   <small class="form-text text-muted mb-4 small">
-    At least 8 characters and 1 digit
+    (Requerido)
   </small>
   {{ form.password }}
   <label>{{ form.password2.label}}<span class="text-muted small">
-      (Required)</span></label>
+      (Requerido)</span></label>
   {{ form.password2 }}
-  <button class="btn btn-primary btn-block py-2 mb-4 mt-5 fw500 w-100" type="submit">Register</button>
+  <button class="btn btn-primary btn-block py-2 mb-4 mt-5 fw500 w-100" type="submit">Crear</button>
   <p class="text-center">
-    <a href="{% url "usuario:login" %}">Already have an account?</a>
+    <a href="{% url "usuario:login" %}">Ya tienes una cuenta?</a>
   </p>
 </form>
 
