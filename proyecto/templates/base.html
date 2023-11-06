@@ -36,7 +36,20 @@
                     </div>
                 </div>
                 <div class="navbar-right">
-                    <a href="{% url 'clinica:home' %}"><img style="height: 32px;" src="{% static 'img/heart-beat.png' %}" alt="img"></a>
+                    <a href="{% url 'usuario:login' %}"><img style="height: 32px;" src="{% static 'img/user.png' %}" alt="img"></a>
+                    {% if user.is_authenticated %}
+                    <div class="navbar__user-name">
+                        <a class="dropdown-toggle" id="dropdown-toggle">{{ request.user.name}}</a>
+                        <ul class="dropdown-menu" id="dropdown-menu">
+                            <li><a href="{% url 'usuario:logout' %}" class="dropdown-item">Cerrar Sesion</a></li>
+
+                        </ul>
+                        </div>
+                        {% else %}
+                        <div class="navbar__user-name dropdown">
+                        <a href="{% url 'usuario:login' %}">Login</a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </nav>
