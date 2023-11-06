@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-b)-!u$p@_p=0f5dn1zo##(vgmxzj+6q%9!8s8me51qgskkwf0=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['clinicamedica.pythonanywhere.com']
 
 
 # Application definition
