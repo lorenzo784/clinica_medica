@@ -13,9 +13,8 @@
             <thead class="text-center align-middle">
                 <tr>
                     <td>Nombre</td>
-                    <td class="hide-data">Número de colegiado</td>
+                    <td>Número de colegiado</td>
                     <td>Especialidad</td>
-                    <td>Diagnóstico</td>
                     <td>Opciones</td>
                 </tr>
             </thead>
@@ -24,9 +23,8 @@
                 {% for medico in object_list %}
                 <tr>
                     <td>{{medico.nombre}}</td>
-                    <td class="hide-data">{{medico.numero_colegiado}}</td>
+                    <td>{{medico.numero_colegiado}}</td>
                     <td>{{medico.especialidad}}</td>
-                    <td>{{medico.diagnostico}}</td>
                     <td>
                         <a class="btn btn-primary" href="{% url 'clinica:medico-update' medico.id %}">Editar</a>
                         <a class="btn btn-danger" href="{% url 'clinica:medico-delete' medico.id %}">Eliminar</a>

@@ -12,5 +12,6 @@ class MedicoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre',)
     search_fields = ('name',)
 
-
-
+@admin.register(models.Cita)
+class MedicoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'medico', 'paciente')

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content">
+        <form method="post">
+            {% csrf_token %}
+            <h3>¿Desea eliminar la cita de {{object.paciente}}?</h3>
+            <div class="content">
+                <button class="btn btn-danger" type="submit">Si, eliminar</button>
+                <a class="btn btn-default" href="{% url 'clinica:medico-list' %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

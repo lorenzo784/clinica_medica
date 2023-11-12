@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1  style="text-align: center;">Nueva Cita</h1>
+
+  <form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Cita</button>
+  </form>
+  
+  <a href="{% url 'clinica:paciente-list' %}">Volver a la lista de pacientes</a>
+{% endblock %}

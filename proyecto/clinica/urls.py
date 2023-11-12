@@ -18,4 +18,11 @@ urlpatterns = [
     path('historia', views.historia_view, name='historia'),
     path('contacto', views.contacto_view, name='contacto'),
     path('formularios', views.formulario_view, name='formulario'),
+
+    path('cita/nueva/', views.CitaCreateView.as_view(), name='cita-create'),
+    path('cita/editar/<int:pk>/', views.CitaUpdateView.as_view(), name='cita-edit'),
+    path('cita/', views.CitaListView.as_view(), name='cita-list'),
+    path('cita/<int:pk>/', views.CitaDetailView.as_view(), name='cita-detail'),
+    path('paciente/<int:pk>/citas/', views.CitasPacienteView.as_view(), name='citas-paciente'),
+    path('cita/<int:pk>/delete/', views.CitaDeleteView.as_view(), name='cita-delete'),
 ]

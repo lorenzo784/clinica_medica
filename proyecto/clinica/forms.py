@@ -1,7 +1,6 @@
 from django import forms
 from .models import Paciente, Medico
 
-
 class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
@@ -11,8 +10,6 @@ class PacienteForm(forms.ModelForm):
             'dpi',
             'fecha_de_nacimiento',
             'direccion',
-            'razon_de_visita',
-            'receta_medica',
             'numero_telefonico',
         ]
 
@@ -21,54 +18,15 @@ class PacienteForm(forms.ModelForm):
             'dpi': 'Número de DPI',
             'fecha_de_nacimiento': 'Fecha de nacimiento',
             'direccion': 'Dirección',
-            'razon_de_visita': 'Razón de visita',
-            'receta_medica': 'Receta médica',
-            'numero_telefonico': 'Número telefónico'
+            'numero_telefonico': 'Número telefónico',
         }
 
         widgets = {
-            'nombre': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su nombre'
-                }
-            ),
-            'dpi': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su numero de DPI'
-                }
-            ),
-            'fecha_de_nacimiento': forms.DateInput(
-                attrs={
-                    'type': 'date',
-                    'class': 'form-control',
-                }
-            ),
-            'direccion': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su dirección residencial'
-                }
-            ),
-            'razon_de_visita': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su razón de visita'
-                }
-            ),
-            'receta_medica': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su receta medica'
-                }
-            ),
-            'numero_telefonico': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su número  telefónico'
-                }
-            ),
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su nombre'}),
+            'dpi': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su número de DPI'}),
+            'fecha_de_nacimiento': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su dirección residencial'}),
+            'numero_telefonico': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su número telefónico'}),
         }
 
 
@@ -80,39 +38,50 @@ class MedicoForm(forms.ModelForm):
             'nombre',
             'numero_colegiado',
             'especialidad',
-            'diagnostico',
         ]
 
         labels = {
             'nombre': 'Nombre completo',
             'numero_colegiado': 'Número de colegiado',
             'especialidad': 'Especialidad',
-            'diagnostico': 'Diagnostico',
         }
 
         widgets = {
-            'nombre': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su nombre'
-                }
-            ),
-            'numero_colegiado': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su numero de colegiado'
-                }
-            ),
-            'especialidad': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese su especialidad',
-                }
-            ),
-            'diagnostico': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese el diagnostico',
-                }
-            )
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su nombre'}),
+            'numero_colegiado': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su número de colegiado'}),
+            'especialidad': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese su especialidad'}),
+        }
+
+from django import forms
+from .models import Cita
+
+class CitaForm(forms.ModelForm):
+    class Meta:
+        model = Cita
+
+        fields = [
+            'medico',
+            'paciente',
+            'razon_de_visita',
+            'diagnostico',
+            'receta_medica',
+            'cita_hecha',
+        ]
+
+        labels = {
+            'medico': 'Médico',
+            'paciente': 'Paciente',
+            'razon_de_visita': 'Razón de Visita',
+            'diagnostico': 'Diagnóstico',
+            'receta_medica': 'Receta Médica',
+            'cita_hecha': 'Cita Finalizada',
+        }
+
+        widgets = {
+            'medico': forms.Select(attrs={'class': 'form-control'}),
+            'paciente': forms.Select(attrs={'class': 'form-control'}),
+            'razon_de_visita': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la razón de la visita'}),
+            'diagnostico': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el diagnóstico'}),
+            'receta_medica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la receta médica'}),
+            'cita_hecha': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }

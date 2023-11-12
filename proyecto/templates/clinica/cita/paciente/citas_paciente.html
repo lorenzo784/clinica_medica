@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Citas de {{ paciente.nombre }}</h1>
+
+  <h2>Información del Paciente</h2>
+  <p>Nombre: {{ paciente.nombre }}</p>
+  <p>DPI: {{ paciente.dpi }}</p>
+  <p>Fecha de Nacimiento: {{ paciente.fecha_de_nacimiento }}</p>
+  
+  <h2>Citas Pendientes</h2>
+  {% if citas_paciente %}
+    <ul>
+      {% for cita in citas_paciente %}
+        {% if not cita.cita_hecha %}
+          <div style="display: flex;">
+            <div>
+              <li class="list-group-item list-group-item-primary">{{ cita }}</li>
+            </div>
+            <div>
+              <div class="container-btns">
+                <a class="btn btn-primary" href="{% url 'clinica:cita-edit' cita.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'clinica:cita-delete' cita.id %}">Eliminar</a>
+              </div>
+            </div>
+          </div>
+          <br>
+          {% else %}
+          No hay registro
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay citas pendientes para este paciente.</p>
+  {% endif %}
+
+  <br>
+  <br>
+
+
+  <h2>Citas Realizadas</h2>
+  {% if citas_paciente %}
+    <ul>
+      {% for cita in citas_paciente %}
+        {% if cita.cita_hecha %}
+          <div style="display: flex;">
+            <div>
+              <li class="list-group-item list-group-item-success">{{ cita }}</li>
+            </div>
+            <div>
+              <div class="container-btns">
+                <a class="btn btn-primary" href="{% url 'clinica:cita-edit' cita.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'clinica:cita-delete' cita.id %}">Eliminar</a>
+              </div>
+            </div>
+          </div>
+          <br>
+          {% else %}
+          No hay registro
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay citas realizadas para este paciente.</p>
+  {% endif %}
+
+    <br>
+    <br>
+    <br>
+  <a href="{% url 'clinica:paciente-list' %}">Volver a la lista de pacientes</a>
+{% endblock %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="tabla-registro">
@@ -13,42 +14,47 @@
             <thead class="text-center align-middle">
                 <tr>
                     <td>Nombre</td>
-                    <td class="hide-data">DPI</td>
+                    <td>DPI</td>
                     <td class="hide-data">Fecha de nacimiento</td>
                     <td class="hide-data">Dirección</td>
-                    <td>Razon de visita</td>
-                    <td class="hide-data">Receta médica</td>
                     <td>Número telefónico</td>
+                    <td>Citas</td>
                     <td>Opciones</td>
                 </tr>
             </thead>
-            <tbody class="text-center align-middle" >
+            <tbody class="text-center align-middle">
                 {% if object_list %}
-                {% for paciente in object_list %}
-                <tr>
-                    <td>{{paciente.nombre}}</td>
-                    <td class="hide-data">{{paciente.dpi}}</td>
-                    <td class="hide-data">{{paciente.fecha_de_nacimiento}}</td>
-                    <td class="hide-data">{{paciente.direccion}}</td>
-                    <td>{{paciente.razon_de_visita}}</td>
-                    <td class="hide-data">{{paciente.receta_medica}}</td>
-                    <td>{{paciente.numero_telefonico}}</td>
-                    <td class="container-btns">
-                        <a class="btn btn-primary" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
-                        <a class="btn btn-danger" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
-                    </td>
-                </tr>
-                {% endfor %}
+                    {% for paciente in object_list %}
+                        <tr>
+                            <td>{{ paciente.nombre }}</td>
+                            <td>{{ paciente.dpi }}</td>
+                            <td class="hide-data">{{ paciente.fecha_de_nacimiento }}</td>
+                            <td class="hide-data">{{ paciente.direccion }}</td>
+                            <td>{{ paciente.numero_telefonico }}</td>
+                            <td>
+                                {% if paciente in citas_por_paciente %}
+                                <a href="{% url 'clinica:citas-paciente' paciente.id  %}">Ver citas</a>
+                                {% endif %}
+                                <br>
+                                <a href="{% url 'clinica:cita-create' %}?paciente_id={{ paciente.id }}">Agregar nueva cita</a>
+                            </td>
+                            <td>
+                                <div class="container-btns">
+                                    <a class="btn btn-primary" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
+                                    <a class="btn btn-danger" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
                 {% else %}
-                <tr>
-                    <td colspan="8" class="text-center">No hay registros</td>
-                </tr>
+                    <tr>
+                        <td colspan="7" class="text-center">No hay registros</td>
+                    </tr>
                 {% endif %}
             </tbody>
         </table>
     </div>
 
 </div>
-
 
 {% endblock content %}
