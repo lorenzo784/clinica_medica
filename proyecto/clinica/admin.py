@@ -14,4 +14,4 @@ class MedicoAdmin(admin.ModelAdmin):
 
 @admin.register(models.Cita)
 class MedicoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'medico', 'paciente')
+    list_display = ('id', 'medico',)

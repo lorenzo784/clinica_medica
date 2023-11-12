@@ -5,7 +5,7 @@ from .forms import PacienteForm, MedicoForm, CitaForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
-
+from django.shortcuts import get_object_or_404
 
 def home(request):
     return render(request, 'clinica/home.html')
@@ -88,6 +88,17 @@ class CitaCreateView(CreateView):
     form_class = CitaForm
     template_name = 'clinica/cita/cita_form.html'
     success_url = reverse_lazy('clinica:paciente-list')
+
+    def form_valid(self, form):
+        # Obtén el paciente que se pasa como parámetro en la URL
+        paciente_id = self.kwargs['paciente_id']
+        paciente = get_object_or_404(Paciente, pk=paciente_id)
+
+        # Asigna el paciente al formulario antes de guardarlo
+        form.instance.paciente = paciente
+
+        # Llama al método form_valid de la clase base para continuar con el proceso de guardado
+        return super().form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class CitaUpdateView(UpdateView):

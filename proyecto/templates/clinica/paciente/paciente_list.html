@@ -13,13 +13,13 @@
         <table class="table table-striped">
             <thead class="text-center align-middle">
                 <tr>
-                    <td>Nombre</td>
-                    <td>DPI</td>
-                    <td class="hide-data">Fecha de nacimiento</td>
-                    <td class="hide-data">Dirección</td>
-                    <td>Número telefónico</td>
-                    <td>Citas</td>
-                    <td>Opciones</td>
+                    <th>Nombre</th>
+                    <th>DPI</th>
+                    <th class="hide-data">Fecha de nacimiento</th>
+                    <th class="hide-data">Dirección</th>
+                    <th>Número telefónico</th>
+                    <th>Citas</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody class="text-center align-middle">
@@ -33,15 +33,15 @@
                             <td>{{ paciente.numero_telefonico }}</td>
                             <td>
                                 {% if paciente in citas_por_paciente %}
-                                <a href="{% url 'clinica:citas-paciente' paciente.id  %}">Ver citas</a>
+                                <a href="{% url 'clinica:citas-paciente' paciente.id  %}" class="btn btn-info btn-sm">Ver citas</a>
                                 {% endif %}
                                 <br>
-                                <a href="{% url 'clinica:cita-create' %}?paciente_id={{ paciente.id }}">Agregar nueva cita</a>
+                                <a href="{% url 'clinica:cita-create' paciente.id %}" class="btn btn-success btn-sm">Agregar cita</a>
                             </td>
                             <td>
                                 <div class="container-btns">
-                                    <a class="btn btn-primary" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
-                                    <a class="btn btn-danger" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
+                                    <a class="btn btn-primary btn-sm" href="{% url 'clinica:paciente-update' paciente.id %}">Editar</a>
+                                    <a class="btn btn-danger btn-sm" href="{% url 'clinica:paciente-delete' paciente.id %}">Eliminar</a>
                                 </div>
                             </td>
                         </tr>

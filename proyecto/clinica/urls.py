@@ -19,7 +19,7 @@ urlpatterns = [
     path('contacto', views.contacto_view, name='contacto'),
     path('formularios', views.formulario_view, name='formulario'),
 
-    path('cita/nueva/', views.CitaCreateView.as_view(), name='cita-create'),
+    path('crear_cita/<int:paciente_id>/', views.CitaCreateView.as_view(), name='cita-create'),
     path('cita/editar/<int:pk>/', views.CitaUpdateView.as_view(), name='cita-edit'),
     path('cita/', views.CitaListView.as_view(), name='cita-list'),
     path('cita/<int:pk>/', views.CitaDetailView.as_view(), name='cita-detail'),

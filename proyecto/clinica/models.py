@@ -28,4 +28,4 @@ class Cita(models.Model):
     cita_hecha = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"---Médico: {self.medico.nombre} - {self.fecha_cita} - Paciente: {self.paciente.nombre} - Diagnóstico: {self.diagnostico} - Receta Médica: {self.receta_medica} - Razón de Visita: {self.razon_de_visita} - Entregado: {self.cita_hecha}"
+        return f"---Médico: {self.medico.nombre} - {self.fecha_cita} - Diagnóstico: {self.diagnostico} - Receta Médica: {self.receta_medica} - Razón de Visita: {self.razon_de_visita} - Entregado: {self.cita_hecha}"

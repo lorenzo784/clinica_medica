@@ -55,13 +55,15 @@ class MedicoForm(forms.ModelForm):
 from django import forms
 from .models import Cita
 
+from django import forms
+from .models import Cita
+
 class CitaForm(forms.ModelForm):
     class Meta:
         model = Cita
 
         fields = [
             'medico',
-            'paciente',
             'razon_de_visita',
             'diagnostico',
             'receta_medica',
@@ -70,7 +72,6 @@ class CitaForm(forms.ModelForm):
 
         labels = {
             'medico': 'Médico',
-            'paciente': 'Paciente',
             'razon_de_visita': 'Razón de Visita',
             'diagnostico': 'Diagnóstico',
             'receta_medica': 'Receta Médica',
@@ -79,9 +80,9 @@ class CitaForm(forms.ModelForm):
 
         widgets = {
             'medico': forms.Select(attrs={'class': 'form-control'}),
-            'paciente': forms.Select(attrs={'class': 'form-control'}),
             'razon_de_visita': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la razón de la visita'}),
             'diagnostico': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el diagnóstico'}),
             'receta_medica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la receta médica'}),
             'cita_hecha': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'paciente': forms.HiddenInput(),
         }
