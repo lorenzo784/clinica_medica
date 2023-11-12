@@ -64,6 +64,7 @@ class CitaForm(forms.ModelForm):
 
         fields = [
             'medico',
+            'fecha_cita',
             'razon_de_visita',
             'diagnostico',
             'receta_medica',
@@ -72,6 +73,7 @@ class CitaForm(forms.ModelForm):
 
         labels = {
             'medico': 'Médico',
+            'fecha_cita': 'Fecha de la cita',
             'razon_de_visita': 'Razón de Visita',
             'diagnostico': 'Diagnóstico',
             'receta_medica': 'Receta Médica',
@@ -80,6 +82,7 @@ class CitaForm(forms.ModelForm):
 
         widgets = {
             'medico': forms.Select(attrs={'class': 'form-control'}),
+            'fecha_cita': forms.DateInput(attrs={'type': 'date', 'class': 'form-control',}),
             'razon_de_visita': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la razón de la visita'}),
             'diagnostico': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese el diagnóstico'}),
             'receta_medica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la receta médica'}),

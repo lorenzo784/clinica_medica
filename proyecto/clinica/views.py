@@ -105,7 +105,10 @@ class CitaUpdateView(UpdateView):
     model = Cita
     form_class = CitaForm
     template_name = 'clinica/cita/cita_form.html'
-    success_url = reverse_lazy('clinica:paciente-list')
+
+    def get_success_url(self):
+        paciente_id = self.object.paciente.id
+        return reverse_lazy('clinica:citas-paciente', kwargs={'pk': paciente_id})
 
 class CitaListView(ListView):
     model = Cita
